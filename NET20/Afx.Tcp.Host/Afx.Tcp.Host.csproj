@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C913BA23-06D5-4B15-837A-F07A133310F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Afx.Tcp.Host</RootNamespace>
+    <AssemblyName>Afx.Tcp.Host</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET20</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\publish\net20\</OutputPath>
+    <DefineConstants>TRACE;NET20</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Afx.Tcp.Host.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Afx.Base, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Afx.Tcp.Protocols.9.0.0\lib\net20\Afx.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Afx.Sockets, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Afx.Sockets.9.0.0\lib\net20\Afx.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="Afx.Tcp.Protocols, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Afx.Tcp.Protocols.9.0.0\lib\net20\Afx.Tcp.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\protobuf-net.2.4.6\lib\net20\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\Afx.Tcp.Host\AllowAnonymousAttribute.cs">
+      <Link>AllowAnonymousAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Assembly.cs">
+      <Link>Properties\Assembly.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\Action.cs">
+      <Link>Action.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\ActionResult.cs">
+      <Link>ActionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\AuthorizationContext.cs">
+      <Link>AuthorizationContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\AuthorizeAttribute.cs">
+      <Link>AuthorizeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\CmdMethodInfo.cs">
+      <Link>CmdMethodInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\Controller.cs">
+      <Link>Controller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\Delegate.cs">
+      <Link>Delegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\ExceptionContext.cs">
+      <Link>ExceptionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\IAuthorize.cs">
+      <Link>IAuthorize.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\Session.cs">
+      <Link>Session.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Afx.Tcp.Host\TcpHost.cs">
+      <Link>TcpHost.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\Afx.Tcp.Host\Cmd.xml">
+      <Link>Cmd.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
