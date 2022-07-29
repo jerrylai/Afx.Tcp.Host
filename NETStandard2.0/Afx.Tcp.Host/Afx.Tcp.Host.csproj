@@ -7,7 +7,7 @@
     <Authors>jerrylai@aliyun.com</Authors>
     <Product>Afx.Tcp.Host .NET Standard 2.0</Product>
     <PackageReleaseNotes>Afx.Tcp.Host .NET Standard 2.0</PackageReleaseNotes>
-    <Version>9.1.0</Version>
+    <Version>9.2.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -39,6 +39,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Afx.Tcp.Protocols" Version="9.1.0" />
+    <PackageReference Include="Afx.Tcp.Protocols" Version="9.2.0" />
   </ItemGroup>
 </Project>
