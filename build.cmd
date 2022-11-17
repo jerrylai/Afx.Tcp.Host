@@ -1,7 +1,6 @@
 @echo off
 set Build="%SYSTEMDRIVE%\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MsBuild.exe"
 if exist publish rd /s /q publish
-%Build% "NET20/Afx.Tcp.Host/Afx.Tcp.Host.csproj" /t:Rebuild /p:Configuration=Release
 dotnet build "NETStandard2.0/Afx.Tcp.Host/Afx.Tcp.Host.csproj" -c Release
 dotnet build "NETStandard2.1/Afx.Tcp.Host/Afx.Tcp.Host.csproj" -c Release
 dotnet build "NET6.0/Afx.Tcp.Host/Afx.Tcp.Host.csproj" -c Release

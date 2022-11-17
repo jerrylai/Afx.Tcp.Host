@@ -15,14 +15,14 @@ namespace  Afx.Tcp.Host
     /// </summary>
     public class TcpHost : IDisposable
     {
-        private TcpServer server;
+        private IntPackageTcpServer server;
 
         /// <summary>
         /// 初始化
         /// </summary>
         public TcpHost()
         {
-            this.server = new TcpServer();
+            this.server = new IntPackageTcpServer();
             this.server.AcceptEvent += OnAccept;
             this.server.ServerErrorEvent += OnServerError;
             this.server.ClientErrorEvent += OnClientClosed;
@@ -69,7 +69,7 @@ namespace  Afx.Tcp.Host
             return buffer;
         }
 
-        private void OnClientReadingEvent(ITcpClientAsync client, int length)
+        private void OnClientReadingEvent(IAsyncTcpSocket client, int length)
         {
             Session session = client.UserState as Session;
             if (session != null)
@@ -120,7 +120,7 @@ namespace  Afx.Tcp.Host
         /// 监听到客户端连接
         /// </summary>
         /// <param name="client"></param>
-        protected virtual void OnAccept(ITcpClientAsync client)
+        protected virtual void OnAccept(IAsyncTcpSocket client)
         {
             Session session = new Session(client);
             session.SendCall = this.SendMsg;
@@ -167,7 +167,7 @@ namespace  Afx.Tcp.Host
             }
         }
 
-        private void OnClientClosed(ITcpClientAsync client, Exception ex)
+        private void OnClientClosed(IAsyncTcpSocket client, Exception ex)
         {
             Session session = client.UserState as Session;
             this.OnClientClosedEvent(session);
@@ -196,7 +196,7 @@ namespace  Afx.Tcp.Host
             }
         }
 
-        private void OnClientReceive(ITcpClientAsync client, List<byte[]> data)
+        private void OnClientReceive(IAsyncTcpSocket client, List<byte[]> data)
         {
             if (data == null || data.Count == 0) return;
             foreach (var arr in data)
@@ -269,7 +269,7 @@ namespace  Afx.Tcp.Host
             }
         }
 
-        private void ExecCall(CmdMethodInfo cmdMethodInfo, ITcpClientAsync client, MsgData msg)
+        private void ExecCall(CmdMethodInfo cmdMethodInfo, IAsyncTcpSocket client, MsgData msg)
         {
             var session = client.UserState as Session;
             this.OnCmdExecutingEvent(session, msg);
